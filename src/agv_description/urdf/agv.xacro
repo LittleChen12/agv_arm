@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link
+    name="base_link">
+    <!--<inertial>
+      <origin
+        xyz="0.00701760303587518 -0.0421138127369938 -0.422404494366279"
+        rpy="0 0 0" />
+      <mass
+        value="40.6763468445128" />
+      <inertia
+        ixx="1.61216461184629"
+        ixy="-0.00376247385102953"
+        ixz="0.00109630048810381"
+        iyy="1.26841012843772"
+        iyz="-0.0009324598109451"
+        izz="2.67759171070173" />
+    </inertial> -->
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="lifting_link">
+    <inertial>
+      <origin
+        xyz="5.95910210029443E-06 0.00179615723991137 -0.0915010153826553"
+        rpy="0 0 0" />
+      <mass
+        value="1.35631793260657" />
+      <inertia
+        ixx="0.0128415081438936"
+        ixy="5.9467051362697E-08"
+        ixz="1.72841080463547E-07"
+        iyy="0.0128594321437457"
+        iyz="5.20967478268299E-05"
+        izz="0.0124594541204705" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/lifting_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/lifting_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lifiting_joint"
+    type="prismatic">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lifting_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.5"
+      effort="1000.0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="revolute_link">
+    <inertial>
+      <origin
+        xyz="-1.84358108030458E-06 -0.000638442576643136 0.176227588646549"
+        rpy="0 0 0" />
+      <mass
+        value="4.96842256256156" />
+      <inertia
+        ixx="0.125435241645885"
+        ixy="1.77784044747171E-05"
+        ixz="1.7242148412289E-06"
+        iyy="0.130792947941861"
+        iyz="0.000498856576232733"
+        izz="0.0514999816727782" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/revolute_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/revolute_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="revolute_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="lifting_link" />
+    <child
+      link="revolute_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+
+  <!-- arm1 description-->
+  <link
+    name="arm1_base">
+    <inertial>
+      <origin
+        xyz="6.36038578418003E-05 -0.00504182675650544 0.0531490934325672"
+        rpy="0 0 0" />
+      <mass
+        value="4.79371578157624" />
+      <inertia
+        ixx="0.0227910482676444"
+        ixy="2.040692513631E-05"
+        ixz="-5.84528941452051E-05"
+        iyy="0.0192908399102185"
+        iyz="-0.000325443374085853"
+        izz="0.0321199446825035" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1_base"
+    type="fixed">
+    <origin
+      xyz="0.00033177 0.099999 0.34041"
+      rpy="1.5708 0 3.1383" />
+    <parent
+      link="revolute_link" />
+    <child
+      link="arm1_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="arm1_joint1">
+    <inertial>
+      <origin
+        xyz="0.00698710220352433 -0.546027035582058 -0.230837638466822"
+        rpy="0 0 0" />
+      <mass
+        value="128.434205754724" />
+      <inertia
+        ixx="44.098206499555"
+        ixy="0.188535463079881"
+        ixz="0.217520837518627"
+        iyy="29.8163554666647"
+        iyz="-0.0220239676282299"
+        izz="22.362919163985" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1_joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.125"
+      rpy="0 0 0" />
+    <parent
+      link="arm1_base" />
+    <child
+      link="arm1_joint1" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link
+    name="arm1_joint2">
+    <inertial>
+      <origin
+        xyz="0.205520637253144 -7.64475431735967E-07 0.0942728353828256"
+        rpy="0 0 0" />
+      <mass
+        value="7.38382743981553" />
+      <inertia
+        ixx="0.0158523121028764"
+        ixy="5.54313928804556E-07"
+        ixz="-0.00195030786508713"
+        iyy="0.237335851537481"
+        iyz="-2.91994561342932E-07"
+        izz="0.235952812528342" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1_joint2"
+    type="revolute">
+    <origin
+      xyz="-0.0865 0 0.171"
+      rpy="3.1416 -1.5708 3.1416" />
+    <parent
+      link="arm1_joint1" />
+    <child
+      link="arm1_joint2" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link
+    name="arm1_joint3">
+    <inertial>
+      <origin
+        xyz="0.0413057853539247 -1.50466668225047E-06 -0.0742848759305056"
+        rpy="0 0 0" />
+      <mass
+        value="2.08922080941151" />
+      <inertia
+        ixx="0.0035083422225272"
+        ixy="-4.24979622469626E-07"
+        ixz="0.00201900302554952"
+        iyy="0.0076259021363271"
+        iyz="1.58647917742713E-07"
+        izz="0.0071666425488523" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1_joint3"
+    type="revolute">
+    <origin
+      xyz="0.49 0 0.01"
+      rpy="0 0 0" />
+    <parent
+      link="arm1_joint2" />
+    <child
+      link="arm1_joint3" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link
+    name="arm1_joint4">
+    <inertial>
+      <origin
+        xyz="2.17507435673614E-13 -9.17821374457617E-13 0.0157947014323612"
+        rpy="0 0 0" />
+      <mass
+        value="0.221342913273185" />
+      <inertia
+        ixx="0.000147801577510412"
+        ixy="1.35870784819709E-10"
+        ixz="-2.04633945966248E-16"
+        iyy="0.00014796904051447"
+        iyz="-2.30770455536986E-15"
+        izz="0.000265196663946203" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1_joint4"
+    type="revolute">
+    <origin
+      xyz="0.1475 0 -0.0915"
+      rpy="0 1.5708 0" />
+    <parent
+      link="arm1_joint3" />
+    <child
+      link="arm1_joint4" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link
+    name="arm1_joint5">
+    <inertial>
+      <origin
+        xyz="-0.00936173038682209 -6.40112606601351E-05 -0.0650899734413501"
+        rpy="0 0 0" />
+      <mass
+        value="1.71702187429738" />
+      <inertia
+        ixx="0.00243366242204774"
+        ixy="-1.28905945765869E-07"
+        ixz="0.000735354203280107"
+        iyy="0.00342166024563042"
+        iyz="6.54937535778116E-08"
+        izz="0.00331985988662609" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1_joint5"
+    type="revolute">
+    <origin
+      xyz="0.0737 0 0.2125"
+      rpy="3.1416 -1.5708 3.1416" />
+    <parent
+      link="arm1_joint4" />
+    <child
+      link="arm1_joint5" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link
+    name="arm1_joint6">
+    <inertial>
+      <origin
+        xyz="-0.000164531562171 -1.87838411491725E-10 0.0256318537460429"
+        rpy="0 0 0" />
+      <mass
+        value="0.403264772919737" />
+      <inertia
+        ixx="0.000341839114766193"
+        ixy="2.50676289876056E-13"
+        ixz="4.35642240033976E-07"
+        iyy="0.00033844935912272"
+        iyz="-1.27479057506192E-12"
+        izz="0.000524924259169463" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm1_joint6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1_joint6"
+    type="revolute">
+    <origin
+      xyz="0.073 0 -0.0763"
+      rpy="0 1.5708 0" />
+    <parent
+      link="arm1_joint5" />
+    <child
+      link="arm1_joint6" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link 
+    name="arm1_tool_link" />
+
+  <joint 
+    name="arm1_tool_joint" type="fixed">
+      <parent link="arm1_joint6" />
+      <child link="arm1_tool_link" />
+      <origin xyz="0 0 0.054" rpy="0 0 0" />
+  </joint>
+
+  <!-- arm2 description-->
+  <link
+    name="arm2_base">
+    <inertial>
+      <origin
+        xyz="6.16322567625768E-05 -0.00503524148895995 0.0531494630925861"
+        rpy="0 0 0" />
+      <mass
+        value="4.7934732466409" />
+      <inertia
+        ixx="0.0227910452447341"
+        ixy="2.0406925285877E-05"
+        ixz="-5.84528936699837E-05"
+        iyy="0.0192908342376988"
+        iyz="-0.000325443373515039"
+        izz="0.03211994166045" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2_base"
+    type="fixed">
+    <origin
+      xyz="-0.00033177 -0.099999 0.34041"
+      rpy="1.5708 0 -0.0033177" />
+    <parent
+      link="revolute_link" />
+    <child
+      link="arm2_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="arm2_joint1">
+    <inertial>
+      <origin
+        xyz="-0.00698710220324618 -0.546027035586403 -0.219162361533468"
+        rpy="0 0 0" />
+      <mass
+        value="128.434205754724" />
+      <inertia
+        ixx="44.098206499555"
+        ixy="-0.188535463079881"
+        ixz="0.217520837518476"
+        iyy="29.8163554666647"
+        iyz="0.0220239676282312"
+        izz="22.362919163985" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2_joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.125"
+      rpy="0 0 0" />
+    <parent
+      link="arm2_base" />
+    <child
+      link="arm2_joint1" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link
+    name="arm2_joint2">
+    <inertial>
+      <origin
+        xyz="0.205520637252733 -7.64468162106624E-07 0.0942728353827997"
+        rpy="0 0 0" />
+      <mass
+        value="7.3838274398378" />
+      <inertia
+        ixx="0.0158523121029449"
+        ixy="5.5430644578013E-07"
+        ixz="-0.00195030786510058"
+        iyy="0.237335851537932"
+        iyz="-2.91994623432707E-07"
+        izz="0.235952812528862" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2_joint2"
+    type="revolute">
+    <origin
+      xyz="-0.0865 0 0.171"
+      rpy="3.1416 -1.5708 3.1416" />
+    <parent
+      link="arm2_joint1" />
+    <child
+      link="arm2_joint2" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link
+    name="arm2_joint3">
+    <inertial>
+      <origin
+        xyz="0.0413057853532984 -1.50466526527282E-06 -0.0742848759305183"
+        rpy="0 0 0" />
+      <mass
+        value="2.08922080943039" />
+      <inertia
+        ixx="0.00350834215176002"
+        ixy="-4.25029702288039E-07"
+        ixz="0.00201900305050577"
+        iyy="0.00762590222733057"
+        iyz="1.58617886307435E-07"
+        izz="0.00716664258923811" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2_joint3"
+    type="revolute">
+    <origin
+      xyz="0.49 0 0.01"
+      rpy="0 0 0" />
+    <parent
+      link="arm2_joint2" />
+    <child
+      link="arm2_joint3" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link
+    name="arm2_joint4">
+    <inertial>
+      <origin
+        xyz="2.17671367042094E-13 -3.71258579434652E-13 0.0157947014323612"
+        rpy="0 0 0" />
+      <mass
+        value="0.221342913273187" />
+      <inertia
+        ixx="0.000147801577510414"
+        ixy="1.35870783900383E-10"
+        ixz="-2.03681577502595E-16"
+        iyy="0.000147969040514471"
+        iyz="1.74658629356398E-15"
+        izz="0.000265196663946205" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2_joint4"
+    type="revolute">
+    <origin
+      xyz="0.1475 0 -0.0915"
+      rpy="0 1.5708 0" />
+    <parent
+      link="arm2_joint3" />
+    <child
+      link="arm2_joint4" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link 
+    name="arm2_joint5">
+    <inertial>
+      <origin
+        xyz="-0.00936173038675303 -6.40112608304433E-05 -0.0650899734413594"
+        rpy="0 0 0" />
+      <mass
+        value="1.71702187429735" />
+      <inertia
+        ixx="0.00243366242204618"
+        ixy="-1.28905981643675E-07"
+        ixz="0.000735354203279126"
+        iyy="0.00342166024563025"
+        iyz="6.54937792358708E-08"
+        izz="0.00331985988662747" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2_joint5"
+    type="revolute">
+    <origin
+      xyz="0.0737 0 0.2125"
+      rpy="3.1416 -1.5708 3.1416" />
+    <parent
+      link="arm2_joint4" />
+    <child
+      link="arm2_joint5" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link
+    name="arm2_joint6">
+    <inertial>
+      <origin
+        xyz="-0.000164531562170667 -1.86952897607284E-10 0.0256318537460429"
+        rpy="0 0 0" />
+      <mass
+        value="0.403264772919735" />
+      <inertia
+        ixx="0.000341839114766191"
+        ixy="2.50706461885638E-13"
+        ixz="4.35642240035203E-07"
+        iyy="0.000338449359122716"
+        iyz="-1.26834013651661E-12"
+        izz="0.000524924259169459" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agv_description/meshes/arm2_joint6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2_joint6"
+    type="revolute">
+    <origin
+      xyz="0.073 0 -0.0763"
+      rpy="0 1.5708 0" />
+    <parent
+      link="arm2_joint5" />
+    <child
+      link="arm2_joint6" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
+  </joint>
+  <link 
+    name="arm2_tool_link" />
+  <joint 
+    name="arm2_tool_joint" type="fixed">
+      <parent link="arm2_joint6" />
+      <child link="arm2_tool_link" />
+      <origin xyz="0 0 0.054" rpy="0 0 0" />
+  </joint>
+
+</robot>

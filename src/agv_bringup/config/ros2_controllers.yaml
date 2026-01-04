@@ -1,0 +1,58 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    arm1_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    arm2_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    agvBase_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+arm1_controller:
+  ros__parameters:
+    joints:
+      - arm1_joint1
+      - arm1_joint2
+      - arm1_joint3
+      - arm1_joint4
+      - arm1_joint5
+      - arm1_joint6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+    allow_nonzero_velocity_at_trajectory_end: true
+arm2_controller:
+  ros__parameters:
+    joints:
+      - arm2_joint1
+      - arm2_joint2
+      - arm2_joint3
+      - arm2_joint4
+      - arm2_joint5
+      - arm2_joint6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+    allow_nonzero_velocity_at_trajectory_end: true
+agvBase_controller:
+  ros__parameters:
+    joints:
+      - lifiting_joint
+      - revolute_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+    allow_nonzero_velocity_at_trajectory_end: true

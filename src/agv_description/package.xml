@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv_description</name>
+  <version>0.0.1</version>
+  <description>Rokae robot description package for ROS 2 (URDF / meshes / launch files)</description>
+  <maintainer email="zhu@example.com">Zhu Chen</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- 构建工具 -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- 运行时依赖（launch / rviz 等） -->
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+
+  <!-- 可选：如果你的包只是资源（URDF/meshes/launch），不需要 node，可不加 build_export / exec_export -->
+  <export>
+    <!-- 告诉 ament 这是 ament_cmake 类型的包，便于索引 -->
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

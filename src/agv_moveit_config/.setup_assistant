@@ -1,0 +1,23 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: agv_description
+    relative_path: urdf/agv_robot.urdf.xacro
+  srdf:
+    relative_path: config/agv_description.srdf
+  package_settings:
+    author_name: zhuchen
+    author_email: 2827497158@qq.com
+    generated_timestamp: 1767080276
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position

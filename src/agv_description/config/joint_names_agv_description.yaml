@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'lifiting_joint', 'revolute_joint', 'arm1_joint1', 'arm1_joint2', 'arm1_joint3', 'arm1_joint4', 'arm1_joint5', 'arm1_joint6', 'arm2_joint1', 'arm2_joint2', 'arm2_joint3', 'arm2_joint4', 'arm2_joint5', 'arm2_joint6', ]

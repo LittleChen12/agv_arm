@@ -1,0 +1,17 @@
+# Default initial positions for agv_description's ros2_control fake system
+
+initial_positions:
+  arm1_joint1: 0
+  arm1_joint2: 0
+  arm1_joint3: 0
+  arm1_joint4: 0
+  arm1_joint5: 0
+  arm1_joint6: 0
+  arm2_joint1: 0
+  arm2_joint2: 0
+  arm2_joint3: 0
+  arm2_joint4: 0
+  arm2_joint5: 0
+  arm2_joint6: 0
+  lifiting_joint: 0
+  revolute_joint: 0
