@@ -73,7 +73,7 @@ int main(int argc, char **argv)
     std::cout << "Start Cartesian Path" << std::endl;
     // Cartesian Path
     agv_arm1.setMaxVelocityScalingFactor(0.1);
-    agv_arm1.setMaxAccelerationScalingFactor(0.5);
+    agv_arm1.setMaxAccelerationScalingFactor(1.0);
     std::vector<geometry_msgs::msg::Pose> waypoints;
     geometry_msgs::msg::Pose pose1 = agv_arm1.getCurrentPose().pose;
     pose1.position.x += 0.2;

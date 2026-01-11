@@ -3,7 +3,8 @@
   <ros2_control name="Agv" type="system">
       <hardware>
           <!-- By default, set up controllers for simulation. This won't work on real hardware -->
-          <plugin>mock_components/GenericSystem</plugin>
+          <!-- <plugin>mock_components/GenericSystem</plugin> -->
+          <plugin>agv_hardware/AgvHardwareInterface</plugin>
       </hardware>
       <joint name="arm1_joint1">
           <command_interface name="position"/>

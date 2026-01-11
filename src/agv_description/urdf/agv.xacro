@@ -369,7 +369,7 @@
     <child
       link="arm1_joint3" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
   </joint>
   <link
@@ -477,7 +477,7 @@
     <child
       link="arm1_joint5" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit effort = "1000.0" velocity = "1.0" lower = "-3.14" upper = "3.14"/>
   </joint>
   <link
